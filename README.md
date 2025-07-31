@@ -5,7 +5,7 @@ A secure and stateless REST API for managing personal journal entries. Built wit
 ## ✨ Features
 
 - User registration and authentication
-- Secure journal entry creation, retrieval, and listing
+- Secure journal entry creation, retrieval, update, and deletion
 - MongoDB integration with `@DBRef` relations
 - Role-based authorization (`User`, `Admin`, etc.)
 - Passwords hashed with BCrypt
@@ -36,26 +36,48 @@ spring.data.mongodb.uri=mongodb+srv://<username>:<password>@<cluster>.mongodb.ne
 
 ## 🚀 Endpoints Overview
 
-> All `/journal/**` routes require HTTP Basic Auth.
+> All `/journal/**` and `PUT /user/**` routes require **HTTP Basic Auth**.
 
-| Method | Endpoint                  | Description                         |
-|--------|---------------------------|-------------------------------------|
-| POST   | `/register`               | Register a new user                 |
-| POST   | `/journal/{username}`     | Add journal entry for user          |
-| GET    | `/journal/{username}`     | Get all entries for user            |
-| GET    | `/journal/id/{id}`        | Fetch specific journal by ID        |
+### 📘 Journal Endpoints
+
+| Method | Endpoint                            | Description                                  |
+|--------|-------------------------------------|----------------------------------------------|
+| POST   | `/journal/{username}`               | Create a new journal entry for a user        |
+| GET    | `/journal/{username}`               | Get all journal entries for a user           |
+| GET    | `/journal/id/{id}`                  | Get a journal entry by its ID                |
+| PUT    | `/journal/id/{username}/{id}`       | Update a specific journal entry by ID        |
+| DELETE | `/journal/id/{username}/{id}`       | Delete a specific journal entry by ID        |
+
+### 👤 User Endpoints
+
+| Method | Endpoint           | Description                          |
+|--------|--------------------|--------------------------------------|
+| POST   | `/register`        | Register a new user                  |
+| POST   | `/user`            | Create a new user (alternate path)   |
+| PUT    | `/user/{username}` | Update user info (requires auth)     |
 
 ## 🔐 Authentication
 
-- Basic Auth
+- Basic Auth required for protected endpoints
 - Passwords are stored securely using BCrypt
 - Stateless session policy (no cookies/sessions)
 
-## 📂 Sample JSON Payload (Journal Entry)
+## 📂 Sample JSON Payloads
+
+### Journal Entry
 
 ```json
 {
   "title": "My First Entry",
   "content": "This is what I wrote today."
+}
+```
+
+### User Registration
+
+```json
+{
+  "userName": "john_doe",
+  "password": "securepassword123"
 }
 ```
