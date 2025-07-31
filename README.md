@@ -23,6 +23,7 @@ Make sure to configure your `application.properties` (or `.yml`) with your Mongo
 
 ```properties
 spring.data.mongodb.uri=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/journalApp
+```
 
 ## 🛠️ Tech Stack
 
@@ -57,3 +58,4 @@ spring.data.mongodb.uri=mongodb+srv://<username>:<password>@<cluster>.mongodb.ne
   "title": "My First Entry",
   "content": "This is what I wrote today."
 }
+```
