@@ -11,6 +11,19 @@ A secure and stateless REST API for managing personal journal entries. Built wit
 - Passwords hashed with BCrypt
 - Designed for Postman testing
 
+## ☁️ Database
+
+This project uses **MongoDB Atlas (Cloud)** as the backend database, enabling:
+
+- Cloud-hosted database access
+- Scalable and secure data storage
+- Easy remote access without local setup
+
+Make sure to configure your `application.properties` (or `.yml`) with your MongoDB URI:
+
+```properties
+spring.data.mongodb.uri=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/journalApp
+
 ## 🛠️ Tech Stack
 
 - Java 17+
