@@ -7,7 +7,6 @@ A secure and stateless REST API for managing personal journal entries. Built wit
 - User registration and authentication
 - Secure journal entry creation, retrieval, update, and deletion
 - MongoDB integration with `@DBRef` relations
-- Role-based authorization (`User`, `Admin`, etc.)
 - Passwords hashed with BCrypt
 - Designed for Postman testing
 
